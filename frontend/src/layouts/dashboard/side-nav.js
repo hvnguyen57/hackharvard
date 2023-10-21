@@ -13,8 +13,8 @@ import {
   Typography,
   useMediaQuery
 } from '@mui/material';
-import { Logo } from 'src/components/logo';
-import { Scrollbar } from 'src/components/scrollbar';
+import { Logo } from '../../components/logo';
+import { Scrollbar } from '../../components/scrollbar';
 import { items } from './config';
 import { SideNavItem } from './side-nav-item';
 

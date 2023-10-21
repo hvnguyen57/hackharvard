@@ -1,4 +1,4 @@
-import { AuthGuard } from 'src/guards/auth-guard';
+import { AuthGuard } from '../guards/auth-guard';
 
 export const withAuthGuard = (Component) => (props) => (
   <AuthGuard>

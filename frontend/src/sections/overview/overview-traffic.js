@@ -12,7 +12,7 @@ import {
   Typography,
   useTheme
 } from '@mui/material';
-import { Chart } from 'src/components/chart';
+import { Chart } from '../../components/chart';
 
 const useChartOptions = (labels) => {
   const theme = useTheme();
