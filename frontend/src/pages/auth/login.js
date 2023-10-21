@@ -16,33 +16,32 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-import { useAuth } from '../../hooks/use-auth';
+//import { useAuth } from '../../hooks/use-auth';
 import { Layout as AuthLayout } from '../../layouts/auth/layout';
 
 const Page = () => {
   const router = useRouter();
-  const auth = useAuth();
-  const [method, setMethod] = useState('email');
+  //const auth = useAuth();
+  const [method, setMethod] = useState('Address');
   const formik = useFormik({
     initialValues: {
-      email: 'demo@devias.io',
-      password: 'Password123!',
+      Address: '150 Western Ave, Boston, MA',
+      Area: '5000',
       submit: null
     },
     validationSchema: Yup.object({
-      email: Yup
-        .string()
-        .email('Must be a valid email')
-        .max(255)
-        .required('Email is required'),
-      password: Yup
+      Address: Yup
         .string()
         .max(255)
-        .required('Password is required')
+        .required('Address is required'),
+      Area: Yup
+        .string()
+        .max(255)
+        .required('Area is required')
     }),
     onSubmit: async (values, helpers) => {
       try {
-        await auth.signIn(values.email, values.password);
+        //await auth.signIn(values.Address, values.Area);
         router.push('/');
       } catch (err) {
         helpers.setStatus({ success: false });
@@ -52,7 +51,7 @@ const Page = () => {
     }
   });
 
-  const handleMethodChange = useCallback(
+  /*const handleMethodChange = useCallback(
     (event, value) => {
       setMethod(value);
     },
@@ -65,13 +64,13 @@ const Page = () => {
       router.push('/');
     },
     [auth, router]
-  );
+  );*/
 
   return (
     <>
       <Head>
         <title>
-          Login | Devias Kit
+          Landing | Name of Site
         </title>
       </Head>
       <Box
@@ -97,70 +96,59 @@ const Page = () => {
               sx={{ mb: 3 }}
             >
               <Typography variant="h4">
-                Login
+                Lot Estimator
               </Typography>
               <Typography
                 color="text.secondary"
                 variant="body2"
               >
-                Don&apos;t have an account?
-                &nbsp;
-                <Link
-                  component={NextLink}
-                  href="/auth/register"
-                  underline="hover"
-                  variant="subtitle2"
-                >
-                  Register
-                </Link>
+                Enter your parking lot information below
+                
               </Typography>
             </Stack>
             <Tabs
-              onChange={handleMethodChange}
+              //onChange={handleMethodChange}
               sx={{ mb: 3 }}
               value={method}
             >
               <Tab
-                label="Email"
-                value="email"
+                label="Lot Information"
+                value="Address"
               />
-              <Tab
-                label="Phone Number"
-                value="phoneNumber"
-              />
+         
             </Tabs>
-            {method === 'email' && (
+            {method === 'Address' && (
               <form
                 noValidate
                 onSubmit={formik.handleSubmit}
               >
                 <Stack spacing={3}>
                   <TextField
-                    error={!!(formik.touched.email && formik.errors.email)}
+                    error={!!(formik.touched.Address && formik.errors.Address)}
                     fullWidth
-                    helperText={formik.touched.email && formik.errors.email}
-                    label="Email Address"
-                    name="email"
+                    helperText={formik.touched.Address && formik.errors.Address}
+                    label="Address"
+                    name="Address"
                     onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
-                    type="email"
-                    value={formik.values.email}
+                    type="Address"
+                    value={formik.values.Address}
                   />
                   <TextField
-                    error={!!(formik.touched.password && formik.errors.password)}
+                    error={!!(formik.touched.Area && formik.errors.Area)}
                     fullWidth
-                    helperText={formik.touched.password && formik.errors.password}
-                    label="Password"
-                    name="password"
+                    helperText={formik.touched.Area && formik.errors.Area}
+                    label="Area in sf"
+                    name="Area"
                     onBlur={formik.handleBlur}
                     onChange={formik.handleChange}
-                    type="password"
-                    value={formik.values.password}
+                    type="Area"
+                    value={formik.values.Area}
                   />
                 </Stack>
-                <FormHelperText sx={{ mt: 1 }}>
-                  Optionally you can skip.
-                </FormHelperText>
+                {/* <FormHelperText sx={{ mt: 1 }}> */}
+                  {/* Optionally you can skip. */}
+                {/* </FormHelperText> */}
                 {formik.errors.submit && (
                   <Typography
                     color="error"
@@ -179,37 +167,16 @@ const Page = () => {
                 >
                   Continue
                 </Button>
-                <Button
-                  fullWidth
-                  size="large"
-                  sx={{ mt: 3 }}
-                  onClick={handleSkip}
-                >
-                  Skip authentication
-                </Button>
                 <Alert
                   color="primary"
                   severity="info"
                   sx={{ mt: 3 }}
                 >
                   <div>
-                    You can use <b>demo@devias.io</b> and password <b>Password123!</b>
+                    You can use <b>150 Western Ave, Boston, MA</b> and an area of <b>5000</b> sqft
                   </div>
                 </Alert>
               </form>
-            )}
-            {method === 'phoneNumber' && (
-              <div>
-                <Typography
-                  sx={{ mb: 1 }}
-                  variant="h6"
-                >
-                  Not available in the demo
-                </Typography>
-                <Typography color="text.secondary">
-                  To prevent unnecessary costs we disabled this feature in the demo.
-                </Typography>
-              </div>
             )}
           </div>
         </Box>
