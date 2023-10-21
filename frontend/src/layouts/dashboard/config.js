@@ -14,7 +14,7 @@ export const items = [
   },
   {
     title: 'Map',
-    path: '/',
+    path: '/map',
     icon: (
       <SvgIcon fontSize="small">
         <MapIcon /> 

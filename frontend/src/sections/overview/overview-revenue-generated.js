@@ -55,7 +55,7 @@ const useChartOptions = () => {
       }
     },
     stroke: {
-      colors: ['transparent'],
+      colors: ['yellow'],
       show: true,
       width: 2
     },
