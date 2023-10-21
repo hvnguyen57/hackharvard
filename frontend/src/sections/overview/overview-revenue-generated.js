@@ -131,7 +131,7 @@ export const OverviewSales = (props) => {
           height={350}
           options={chartOptions}
           series={chartSeries}
-          type="bar"
+          type="line"
           width="100%"
         />
       </CardContent>
