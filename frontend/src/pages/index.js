@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { Box, Container, Unstable_Grid2 as Grid } from '@mui/material';
 import { Layout as DashboardLayout } from '../layouts/dashboard/layout';
 import { OverviewBudget } from '../sections/overview/overview-revenue';
-import { OverviewSales } from '../sections/overview/overview-sales';
+import { OverviewSales } from '../sections/overview/overview-revenue-generated';
 import { OverviewTasksProgress } from '../sections/overview/overview-payback-period';
 import { OverviewTotalCustomers } from '../sections/overview/overview-time-construction-est';
 import { OverviewTotalProfit } from '../sections/overview/overview-total-profit';
@@ -82,11 +82,11 @@ const Page = () => (
                 {
                   name: 'This year',
                   data: [18, 16, 5, 8, 3, 14, 14, 16, 17, 19, 18, 20]
-                },
-                {
-                  name: 'Last year',
-                  data: [12, 11, 4, 6, 2, 9, 9, 10, 11, 12, 13, 13]
                 }
+                // {
+                //   name: 'Last year',
+                //   data: [12, 11, 4, 6, 2, 9, 9, 10, 11, 12, 13, 13]
+                // }
               ]}
               sx={{ height: '100%' }}
             />
