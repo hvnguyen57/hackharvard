@@ -70,7 +70,7 @@ const Page = () => {
     <>
       <Head>
         <title>
-          Landing | Name of Site
+          SolarUpWith.us
         </title>
       </Head>
       <Box

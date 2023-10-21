@@ -85,7 +85,7 @@ export const Layout = (props) => {
                 sx={{ color: '#FFA500' }}
                 target="_blank"
               >
-                Website Name
+                SolarUpWith.Us
               </Box>
             </Typography>
             <Typography
