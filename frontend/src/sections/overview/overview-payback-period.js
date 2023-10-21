@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ListBulletIcon from '@heroicons/react/24/solid/ListBulletIcon';
+import ClockIcon from '@heroicons/react/24/solid/ClockIcon'; 
 import {
   Avatar,
   Box,
@@ -23,16 +23,16 @@ export const OverviewTasksProgress = (props) => {
           justifyContent="space-between"
           spacing={3}
         >
-          <Stack spacing={1}>
+          <Stack spacing={0.5}>
             <Typography
               color="text.secondary"
               gutterBottom
               variant="overline"
             >
-              Task Progress
+              Payback Period
             </Typography>
             <Typography variant="h4">
-              {value}%
+              {value} years
             </Typography>
           </Stack>
           <Avatar
@@ -43,15 +43,17 @@ export const OverviewTasksProgress = (props) => {
             }}
           >
             <SvgIcon>
-              <ListBulletIcon />
+              <ClockIcon /> 
             </SvgIcon>
           </Avatar>
         </Stack>
-        <Box sx={{ mt: 3 }}>
-          <LinearProgress
-            value={value}
-            variant="determinate"
-          />
+        <Box sx={{ mt: 1.5 }}>
+        <Typography
+              color="text.secondary"
+              variant="caption"
+            >
+              Last updated:
+            </Typography>
         </Box>
       </CardContent>
     </Card>
