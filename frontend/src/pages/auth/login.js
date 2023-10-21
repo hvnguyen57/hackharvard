@@ -16,12 +16,12 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-//import { useAuth } from '../../hooks/use-auth';
+import { useAuth } from '../../hooks/use-auth';
 import { Layout as AuthLayout } from '../../layouts/auth/layout';
 
 const Page = () => {
   const router = useRouter();
-  //const auth = useAuth();
+  const auth = useAuth();
   const [method, setMethod] = useState('Address');
   const formik = useFormik({
     initialValues: {
@@ -41,7 +41,7 @@ const Page = () => {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        //await auth.signIn(values.Address, values.Area);
+        await auth.signIn(values.Address, values.Area);
         router.push('/');
       } catch (err) {
         helpers.setStatus({ success: false });
@@ -51,7 +51,7 @@ const Page = () => {
     }
   });
 
-  /*const handleMethodChange = useCallback(
+  const handleMethodChange = useCallback(
     (event, value) => {
       setMethod(value);
     },
@@ -64,7 +64,7 @@ const Page = () => {
       router.push('/');
     },
     [auth, router]
-  );*/
+  );
 
   return (
     <>
@@ -107,7 +107,7 @@ const Page = () => {
               </Typography>
             </Stack>
             <Tabs
-              //onChange={handleMethodChange}
+              onChange={handleSkip}
               sx={{ mb: 3 }}
               value={method}
             >
