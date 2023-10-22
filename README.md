@@ -34,4 +34,6 @@ SolarUp is an innovative project that offers a free solar calculator designed to
 
 Ready to explore the possibilities of solar energy? Visit [SolarUpWith.Us](https://www.solarupwith.us) today and take the first step towards a greener and more cost-effective energy future!
 
+## [FAQ]((https://lblommesteyn.github.io/SolarUpFAQ/)https://lblommesteyn.github.io/SolarUpFAQ/)
+
 
