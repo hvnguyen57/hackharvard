@@ -200,6 +200,9 @@ const costVal = generateCost(totalCost);
 console.log(costVal);
 const KWH = MWH;
 const OUTPUTS = `${KWH} KWH`;
+const formattedRevenue = revenue.toLocaleString();
+const formattedConstruction = construction.toLocaleString();
+const formattedOutputs = OUTPUTS.toLocaleString();
 
   return (
   <>
@@ -231,7 +234,7 @@ const OUTPUTS = `${KWH} KWH`;
               difference={12}
               positive
               sx={{ height: '100%' }}
-              value= {revenue}
+              value= {formattedRevenue}
             />
           </Grid>
           <Grid
@@ -241,7 +244,7 @@ const OUTPUTS = `${KWH} KWH`;
           >
             <OverviewTotalProfit
               sx={{ height: '100%' }}
-              value={construction}
+              value={formattedConstruction}
             />
           </Grid>
           <Grid
@@ -257,7 +260,7 @@ const OUTPUTS = `${KWH} KWH`;
           >
             <OverviewTotalCustomers
               sx={{ height: '100%' }}
-              value = {OUTPUTS}
+              value = {formattedOutputs}
             />
           </Grid>
           <Grid
