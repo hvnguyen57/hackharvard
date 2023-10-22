@@ -72,18 +72,18 @@ const useChartOptions = () => {
         show: true
       },
       categories: [
-        'Jan',
-        'Feb',
-        'Mar',
-        'Apr',
-        'May',
-        'Jun',
-        'Jul',
-        'Aug',
-        'Sep',
-        'Oct',
-        'Nov',
-        'Dec'
+        '0',
+        '5',
+        '10',
+        '15',
+        '20',
+        '25',
+        '30',
+        '35',
+        '40',
+        '45',
+        '50',
+        '55'
       ],
       labels: {
         offsetY: 5,

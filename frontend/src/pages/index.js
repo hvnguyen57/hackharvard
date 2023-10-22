@@ -255,7 +255,7 @@ const OUTPUTS = `${KWH} KWH`;
             sm={6}
             lg={3}
           >
-            <OverviewTotalProfit
+            <OverviewTotalCustomers
               sx={{ height: '100%' }}
               value = {OUTPUTS}
             />
