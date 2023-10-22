@@ -1,53 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { Box } from '@material-ui/core';
+import mapboxgl from 'mapbox-gl';
 import { Layout as DashboardLayout } from '../layouts/dashboard/layout';
+
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_KEY;
 
 const useStyles = makeStyles((theme) => ({
   mapContainer: {
-    height: 'calc(100vh - 64px)',
+    height: '100vh',
     width: '100%',
-    position: 'relative',
   },
 }));
 
 const Map = () => {
   const classes = useStyles();
-  const [currentPosition, setCurrentPosition] = useState(null);
+  const [map, setMap] = useState(null);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setCurrentPosition({
-          lat: position.coords.latitude,
-          lng: position.coords.longitude,
-        });
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }, []);
+    const initializeMap = ({ setMap, mapContainer }) => {
+      const map = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-71.0589, 42.3601],
+        zoom: 12,
+      });
+
+      map.on('load', () => {
+        setMap(map);
+        map.resize();
+      });
+    };
+
+    if (!map) initializeMap({ setMap, mapContainer: mapContainerRef });
+  }, [map]);
+
+  const mapContainerRef = React.useRef(null);
 
   return (
-    <div className={classes.mapContainer}>
-      <LoadScript
-        googleMapsApiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}
-      >
-        <GoogleMap
-          mapContainerStyle={{
-            height: '100%',
-            width: '100%',
-          }}
-          center={currentPosition}
-          zoom={15}
-        >
-          {currentPosition && (
-            <Marker position={currentPosition} />
-          )}
-        </GoogleMap>
-      </LoadScript>
-    </div>
+    <Box className={classes.mapContainer}>
+      <div ref={mapContainerRef} className={classes.mapContainer} />
+    </Box>
   );
 };
 
