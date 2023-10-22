@@ -6,7 +6,7 @@ import { OverviewSales } from '../sections/overview/overview-revenue-generated';
 import { OverviewTasksProgress } from '../sections/overview/overview-payback-period';
 import { OverviewTotalCustomers } from '../sections/overview/overview-time-construction-est';
 import { OverviewTotalProfit } from '../sections/overview/overview-total-profit';
-import { OverviewTraffic } from '../sections/overview/overview-traffic';
+import { OverviewTraffic } from '../sections/overview/overview-revenue-breakdown';
 
 const now = new Date();
 
