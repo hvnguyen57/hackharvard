@@ -42,7 +42,7 @@ const Page = () => {
     }),
     onSubmit: async (values, helpers) => {
       try {
-        await auth.signIn(values.Address, values.Area);
+        auth.skip()
         Cookies.set('Address', values.Address);
         Cookies.set('Area', values.Area);
         router.push('/');
