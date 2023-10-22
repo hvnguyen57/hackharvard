@@ -6,7 +6,9 @@ import { OverviewSales } from '../sections/overview/overview-revenue-generated';
 import { OverviewTasksProgress } from '../sections/overview/overview-payback-period';
 import { OverviewTotalCustomers } from '../sections/overview/overview-time-construction-est';
 import { OverviewTotalProfit } from '../sections/overview/overview-total-profit';
-import { OverviewTraffic } from '../sections/overview/overview-revenue-breakdown';
+
+const API_KEY = process.env.API_KEY;
+const apiKey = process.env.apiKey;
 
 const now = new Date();
 
@@ -75,7 +77,7 @@ const Page = () => (
           </Grid>
           <Grid
             xs={12}
-            lg={8}
+            lg={12}
           >
             <OverviewSales
               chartSeries={[
@@ -89,17 +91,6 @@ const Page = () => (
                   data: [12, 11, 4, 6, 2, 9, 9, 10, 11, 12, 13, 13], //Replace this with actual data
                 }
               ]}
-              sx={{ height: '100%' }}
-            />
-          </Grid>
-          <Grid
-            xs={12}
-            md={6}
-            lg={4}
-          >
-            <OverviewTraffic
-              chartSeries={[63, 15, 22]}
-              labels={['Desktop', 'Tablet', 'Phone']}
               sx={{ height: '100%' }}
             />
           </Grid>
