@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { Layout as DashboardLayout } from '../layouts/dashboard/layout';
 
 const useStyles = makeStyles((theme) => ({
   mapContainer: {
@@ -49,5 +50,11 @@ const Map = () => {
     </div>
   );
 };
+
+Map.getLayout = (page) => (
+  <DashboardLayout>
+    {page}
+  </DashboardLayout>
+);
 
 export default Map;
