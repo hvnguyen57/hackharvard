@@ -4,6 +4,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import Cookies from 'js-cookie'
 import {
   Alert,
   Box,
@@ -42,6 +43,8 @@ const Page = () => {
     onSubmit: async (values, helpers) => {
       try {
         await auth.signIn(values.Address, values.Area);
+        Cookies.set('Address', values.Address);
+        Cookies.set('Area', values.Area);
         router.push('/');
       } catch (err) {
         helpers.setStatus({ success: false });
